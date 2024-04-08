@@ -22,6 +22,7 @@
                                         outlined
                                         dense
                                         v-model="input"
+                                        @keyup.enter="searchBooks"
                                     ></v-text-field>
                                 </template>
                             </v-col>
@@ -34,7 +35,6 @@
                         text
                         @click="searchBooks"
                         style="border-radius: 20px; background-color: #FF6F00 ;padding: 10px 50px 10px 50px"
-
                     >
                         Buscar
                     </v-btn>
