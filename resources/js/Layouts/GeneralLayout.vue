@@ -1,10 +1,10 @@
 <template>
     <v-app>
-        <v-app-bar app color="amber darken-4" class="white--text" elevate-on-scroll>
+        <v-app-bar app color="#db5523" class="white--text" elevate-on-scroll>
             <slot name="custom-v-app-bar-icon"></slot>
             <Link href="/" class="mr-2">
-                <img src="/images/logo.png"
-                     style="max-height: 40px; max-width:255px; object-fit: contain"
+                <img src="/images/pergamo.png"
+                     style="max-height: 60px; max-width:255px; object-fit: contain"
                 >
 
             </Link>
@@ -36,7 +36,7 @@
             </v-container>
         </v-main>
 
-        <v-footer app padless color="amber darken-4">
+        <v-footer app padless color="#db5523">
             <v-col
                 class="text-center"
                 cols="12"

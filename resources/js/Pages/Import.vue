@@ -32,14 +32,16 @@
                 <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn
-                        color="primario"
+                        style="background-color: #db5523"
+                        class="white--text"
                         text
                         @click="cancelUpload"
                     >
                         Cancelar
                     </v-btn>
                     <v-btn
-                        color="primario"
+                        style="background-color: #db5523"
+                        class="white--text"
                         text
                         @click="updateBooksInformation"
                     >

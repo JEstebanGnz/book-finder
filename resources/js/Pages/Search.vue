@@ -34,7 +34,7 @@
                         class="white--text"
                         text
                         @click="searchBooks"
-                        style="border-radius: 20px; background-color: #FF6F00 ;padding: 10px 50px 10px 50px"
+                        style="border-radius: 20px; background-color: #db5523 ;padding: 10px 50px 10px 50px"
                     >
                         Buscar
                     </v-btn>
