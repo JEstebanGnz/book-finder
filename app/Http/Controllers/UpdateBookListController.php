@@ -6,8 +6,11 @@ use App\Imports\BooksImport;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use Mockery\Exception;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class UpdateBookListController extends Controller
 {
@@ -60,10 +63,16 @@ class UpdateBookListController extends Controller
     public function store(Request $request)
     {
         try{
-            Excel::import(new BooksImport(), $request->file('books'));
+            $xlsxFile  = $request->file('books');
+            //Delete all existing books from the DB and update the new updated list
+            DB::table('books')->select(['*'])->delete();
+            //Import the updated list
+            Excel::import(new BooksImport(), $xlsxFile);
         } catch (\Exception $e){
             return response()->json(['message' => nl2br("Ha ocurrido un error al intentar actualizar la base de libros. " . " Mensaje de error: " . $e->getMessage())],400);
         }
+
+        Storage::delete($xlsxFile);
         return response()->json(['message' => "Base de libros actualizada correctamente"]);
     }
 
